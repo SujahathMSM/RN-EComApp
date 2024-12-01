@@ -1,118 +1,87 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
   Text,
-  useColorScheme,
-  View,
+  SafeAreaView,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
+import React from 'react';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    <SafeAreaView style={styles.mainContainer}>
+      <Text style={styles.text}>Welcome to My Profile</Text>
+      <Image
+        source={{
+          uri: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        }}
+        style={styles.image}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+      <Text style={styles.textName}>Sujahath</Text>
+      <Text style={styles.posName}>Software Engineer - AI/ML</Text>
+      <TouchableOpacity style = {styles.locationContainer}>
+        <Text style={styles.location}>Dubai📍- UAE</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+};
 
 export default App;
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    padding: 20,
+    margin: 20,
+    marginTop: '50%',
+
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+
+    elevation: 5,
+    alignSelf: 'center',
+  },
+
+  text: {
+    color: '#009dff',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+    marginTop: 10,
+    alignSelf: 'center',
+  },
+  textName: {
+    fontWeight: '500',
+    marginTop: 6,
+    alignSelf: 'center',
+    textAlign: 'center',
+  },
+  posName: {
+    fontWeight: '400',
+    margin: 5,
+    alignSelf: 'center',
+    textAlign: 'center',
+  },
+  locationContainer: {
+    backgroundColor: '#000',
+    width: '60%',
+    alignSelf: 'center',
+    borderRadius: 10,
+  },
+  location: {
+    color: '#fff',
+    fontWeight: '400',
+    margin: 5,
+    alignSelf: 'center',
+    textAlign: 'center',
+    fontSize: 10,
+  },
+});
